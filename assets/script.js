@@ -15,7 +15,6 @@ var questionsEl = document.getElementById("questions");
 var resultsEl = document.getElementById("results");
 var timeEl = document.getElementById("timer");
 var answersEl = document.getElementById("answers");
-
 var startBtn = document.getElementById("start");
 
 
@@ -33,10 +32,8 @@ function startQuiz() {
     makeQuestion();
 }
 
-function makeQuestion() {
-    console.log("im a gamer");
-    console.log(questions[0].answers[0])
-    
+//handles the questions and answers
+function makeQuestion() {    
     // show name of question
     var questionNameEl = document.getElementById("question-name");
     questionNameEl.textContent = questions[0].questionQ;
@@ -56,9 +53,30 @@ function makeQuestion() {
     }
 }
 
+//what happens when you click an answer button
+function selectAnswer(event) {
+  //variable for where clicked
+  var whereClick = event.target;
+
+  //check if you clicked a button, cancel function if you didnt
+  if (!whereClick.matches(".answer")) {
+    console.log("misclick!");
+    return;
+  }
+
+  // check for correct answer
+  if (whereClick.value === questions[0].correct) {
+    console.log("HELL YEAH")
+  } else {
+    console.log("IDIOT")
+  }
+
+    endQuiz()
+}
+
 //end the quiz
 function endQuiz() {
-    // show results. move to its own function later, im just testing
+    // show results
     resultsEl.removeAttribute("class", "hidden");
 }
 
@@ -66,3 +84,5 @@ function endQuiz() {
 
 //click start button, start the quiz
 startBtn.onclick = startQuiz;
+
+answersEl.onclick = selectAnswer;
