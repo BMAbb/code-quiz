@@ -3,12 +3,6 @@ body {
     font-size: 125%;
 }
 
-#high-scores {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-}
-
 #timer {
     position: absolute;
     top: 15px;
@@ -86,3 +80,7 @@ button:hover {
     padding-top: 10px;
     color: red;
   }
+
+#high-scores button {
+    font-size:100%
+}
