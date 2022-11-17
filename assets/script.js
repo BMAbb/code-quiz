@@ -57,6 +57,7 @@ var timerEl = document.getElementById("timer");
 var answersEl = document.getElementById("answers");
 var startBtn = document.getElementById("start");
 var rightwrongEl = document.getElementById("right-or-wrong");
+var scoreEl = document.getElementById("score");
 
 
 //functions
@@ -172,6 +173,8 @@ function endQuiz() {
 
     // stops timer
     clearInterval(interval);
+
+    scoreEl.textContent = timer;
 }
 
 //clicks that trigger functions

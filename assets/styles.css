@@ -37,6 +37,19 @@ button {
     transition: background-color 0.1s;
 }
 
+#submit {
+    font-size: 125%;
+}
+
+#inputfield {
+    font-size: 115%;
+    max-width: 55px;
+}
+
+#results {
+    text-align: center;
+}
+
 button:hover {
     background-color: #858585;
     color: rgb(201, 201, 201);
