@@ -58,6 +58,8 @@ var answersEl = document.getElementById("answers");
 var startBtn = document.getElementById("start");
 var rightwrongEl = document.getElementById("right-or-wrong");
 var scoreEl = document.getElementById("score");
+var inputfieldEl = document.getElementById("inputfield")
+var submitBtn = document.getElementById("submit")
 
 
 //functions
@@ -113,7 +115,6 @@ function selectAnswer(event) {
 
   //check if you clicked a button, cancel function if you didnt
   if (!whereClick.matches(".answer")) {
-    console.log("misclick!");
     return;
   }
 
@@ -177,9 +178,23 @@ function endQuiz() {
     scoreEl.textContent = timer;
 }
 
+function saveScore() {
+  // variable of what's in input
+  var input = inputfieldEl.value.trim();
+
+  // check if the input was empty
+  if (input !== '') {
+    // object for this session's score
+    var thisScore = {
+      score: timer,
+      input: input,
+    };
+
+    console.log(thisScore);
+  }
+}
+
 //clicks that trigger functions
-
-//click start button, start the quiz
+submitBtn.onclick = saveScore;
 startBtn.onclick = startQuiz;
-
 answersEl.onclick = selectAnswer;
