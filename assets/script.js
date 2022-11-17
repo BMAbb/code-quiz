@@ -42,14 +42,18 @@ var questions = [
     },
   ];
 
-// variables for quiz progression
+// variables for quiz progression and score
+var timer = 120;
 var currentQuestion = 0
+//set interval and clear interval needs an interval..?
+var interval;
+
 
 // variables for elements
 var instructionsEl = document.getElementById("instructions");
 var questionsEl = document.getElementById("questions");
 var resultsEl = document.getElementById("results");
-var timeEl = document.getElementById("timer");
+var timerEl = document.getElementById("timer");
 var answersEl = document.getElementById("answers");
 var startBtn = document.getElementById("start");
 var rightwrongEl = document.getElementById("right-or-wrong");
@@ -60,11 +64,15 @@ var rightwrongEl = document.getElementById("right-or-wrong");
 //start the quiz
 function startQuiz() {
     
+    timerEl.textContent = "Score: " + timer;
     // hide start screen
     instructionsEl.setAttribute("class", "hidden");
   
     // show the questions div
     questionsEl.removeAttribute("class", "hidden");
+
+    // start timer
+    interval = setInterval(secondPass, 1000);
 
     makeQuestion();
 }
@@ -113,6 +121,14 @@ function selectAnswer(event) {
     rightwrongEl.textContent = "Correct!";
     rightwrongEl.setAttribute("class", "right");
   } else {
+
+    // subtract score
+    timer -= 20;
+    //prevent score from going negative
+    if (timer < 0) {
+      timer = 0;
+    }
+    timerEl.textContent = "Score: " + timer;    
     rightwrongEl.textContent = "Incorrect!";
     rightwrongEl.setAttribute("class", "wrong");
   }
@@ -126,12 +142,24 @@ function selectAnswer(event) {
   // increment to next question
   currentQuestion++
 
-  // check if we've run out of questions
-  if (currentQuestion === questions.length) {
+  // check if we've run out of questions or if score is 0
+  if (timer <= 0 || currentQuestion === questions.length) {
     endQuiz();
   } else {
     makeQuestion();
   } 
+}
+
+//timer seconds passing
+function secondPass() {
+  //update timer by one second
+  timer--;
+  timerEl.textContent = "Score: " + timer;
+
+  //time over, game over
+  if (timer <= 0) {
+    endQuiz();
+  }
 }
 
 //end the quiz
@@ -141,6 +169,9 @@ function endQuiz() {
 
     // hide questions
     questionsEl.setAttribute("class", "hidden");
+
+    // stops timer
+    clearInterval(interval);
 }
 
 //clicks that trigger functions
