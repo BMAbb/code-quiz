@@ -190,8 +190,13 @@ function saveScore() {
       input: input,
     };
 
-    console.log(thisScore);
+  // get any existing saved scores
+  var scores = JSON.parse(window.localStorage.getItem("scores")) || [];
   }
+
+  // save this session's score to local storage
+  scores.push(thisScore);
+  window.localStorage.setItem("scores", JSON.stringify(scores));
 }
 
 //clicks that trigger functions
