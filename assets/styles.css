@@ -1,43 +1,49 @@
 body {
     font-family: Arial;
     font-size: 125%;
-  }
+}
 
 #high-scores {
     position: absolute;
     top: 15px;
     left: 15px;
-    }
+}
 
 #timer {
     position: absolute;
     top: 15px;
     right: 15px;
-    }
+}
 
 #instructions {
     text-align: center;
-    }
+}
 
 .centeredmain {
     margin: 100px auto 0 auto;
     max-width: 600px;
-    }
+}
 
 button {
-  display: inline-block;
-  margin: 5px;
-  cursor: pointer;
-  font-size: 150%;
-  background-color: #5e5e5e;
-  border-radius: 5px;
-  padding: 2px 10px;
-  color: white;
-  border: 0;
-  transition: background-color 0.1s;
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 150%;
+    background-color: #5e5e5e;
+    border-radius: 5px;
+    padding: 2px 10px;
+    color: white;
+    border: 0;
+    transition: background-color 0.1s;
 }
 
 button:hover {
-  background-color: #858585;
-  color: rgb(201, 201, 201);
+    background-color: #858585;
+    color: rgb(201, 201, 201);
+}
+
+
+/*makes it go poof...*/
+.hidden {
+    display: none;
 }
