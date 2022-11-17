@@ -50,3 +50,26 @@ button:hover {
 .hidden {
     display: none;
 }
+
+.rightorwrong {
+    font-size: 150%;
+    margin-top: 10px;
+    padding-top: 10px;
+    color: black;
+  }
+
+.right {
+    font-style: bold;
+    font-size: 150%;
+    margin-top: 10px;
+    padding-top: 10px;
+    color: green;
+  }
+
+.wrong {
+    font-style: italic;
+    font-size: 150%;
+    margin-top: 10px;
+    padding-top: 10px;
+    color: red;
+  }

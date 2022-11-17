@@ -16,6 +16,7 @@ var resultsEl = document.getElementById("results");
 var timeEl = document.getElementById("timer");
 var answersEl = document.getElementById("answers");
 var startBtn = document.getElementById("start");
+var rightwrongEl = document.getElementById("right-or-wrong");
 
 
 //functions
@@ -66,18 +67,29 @@ function selectAnswer(event) {
 
   // check for correct answer
   if (whereClick.value === questions[0].correct) {
-    console.log("HELL YEAH")
+
+    rightwrongEl.setAttribute("class", "right");
   } else {
-    console.log("IDIOT")
+
+    rightwrongEl.setAttribute("class", "wrong");
   }
 
-    endQuiz()
+
+  // disappear the correct/incorrect
+  setTimeout(function () {
+    rightwrongEl.setAttribute("class", "rightorwrong hidden");
+  }, 750);  
+
+  endQuiz()
 }
 
 //end the quiz
 function endQuiz() {
     // show results
     resultsEl.removeAttribute("class", "hidden");
+
+    // hide questions
+    questionsEl.setAttribute("class", "hidden");
 }
 
 //clicks that trigger functions
