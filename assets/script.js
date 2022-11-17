@@ -197,6 +197,8 @@ function saveScore() {
   // save this session's score to local storage
   scores.push(thisScore);
   window.localStorage.setItem("scores", JSON.stringify(scores));
+
+  window.location.href = "highscores.html";
 }
 
 //clicks that trigger functions

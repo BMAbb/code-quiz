@@ -14,8 +14,8 @@ body {
 }
 
 .centeredmain {
-    margin: 100px auto 0 auto;
-    max-width: 600px;
+    margin: 125px auto 0 auto;
+    max-width: 500px;
 }
 
 button {
@@ -83,4 +83,16 @@ button:hover {
 
 #high-scores button {
     font-size:100%
+}
+
+li {
+    padding: 3px;
+    margin: 3px;
+    list-style:decimal;
+    background-color:#cccccc;
+  }
+
+ol {
+    background-color:#b3b3b3;
+    max-width: 200px;
 }
