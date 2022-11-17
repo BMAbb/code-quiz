@@ -4,10 +4,46 @@ var questions = [
       questionQ: "The answer is 3",
       answers: ["One", "Two", "Three", "Llama"],
       correct: "Three",
-    }
+    },
+    {
+      questionQ: "The answer is 1",
+      answers: ["One", "Two", "Three", "Llama"],
+      correct: "One",
+    },
+    {
+      questionQ: "The answer is 3",
+      answers: ["One", "Two", "Three", "Llama"],
+      correct: "Three",
+    },
+    {
+      questionQ: "The answer is Llama",
+      answers: ["One", "Two", "Three", "Llama"],
+      correct: "Llama",
+    },
+    {
+      questionQ: "The answer is 2",
+      answers: ["One", "Two", "Three", "Llama"],
+      correct: "Two",
+    },
+    {
+      questionQ: "The answer is 2",
+      answers: ["One", "Two", "Three", "Llama"],
+      correct: "Two",
+    },
+    {
+      questionQ: "The answer is 1",
+      answers: ["One", "Two", "Three", "Llama"],
+      correct: "One",
+    },
+    {
+      questionQ: "The answer is Llama",
+      answers: ["One", "Two", "Three", "Llama"],
+      correct: "Llama",
+    },
   ];
 
-
+// variables for quiz progression
+var currentQuestion = 0
 
 // variables for elements
 var instructionsEl = document.getElementById("instructions");
@@ -35,10 +71,17 @@ function startQuiz() {
 
 //handles the questions and answers
 function makeQuestion() {    
+    
+    // get question
+    var questionNumber = questions[currentQuestion];
+  
     // show name of question
     var questionNameEl = document.getElementById("question-name");
-    questionNameEl.textContent = questions[0].questionQ;
-  
+    questionNameEl.textContent = questionNumber.questionQ;
+
+    // get rid of old answers
+    answersEl.innerHTML = '';
+
     // make answers
     for (var i = 0; i <= 3; i++) {
       // create buttons for answers
@@ -66,11 +109,11 @@ function selectAnswer(event) {
   }
 
   // check for correct answer
-  if (whereClick.value === questions[0].correct) {
-
+  if (whereClick.value === questions[currentQuestion].correct) {
+    rightwrongEl.textContent = "Correct!";
     rightwrongEl.setAttribute("class", "right");
   } else {
-
+    rightwrongEl.textContent = "Incorrect!";
     rightwrongEl.setAttribute("class", "wrong");
   }
 
@@ -80,7 +123,15 @@ function selectAnswer(event) {
     rightwrongEl.setAttribute("class", "rightorwrong hidden");
   }, 750);  
 
-  endQuiz()
+  // increment to next question
+  currentQuestion++
+
+  // check if we've run out of questions
+  if (currentQuestion === questions.length) {
+    endQuiz();
+  } else {
+    makeQuestion();
+  } 
 }
 
 //end the quiz
