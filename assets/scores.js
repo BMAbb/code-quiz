@@ -1,3 +1,5 @@
+var clearNotifEl = document.getElementById("clearnotif")
+
 function showScores() {
   // get any existing saved scores
   var savedScores = JSON.parse(window.localStorage.getItem("scores")) || [];
@@ -22,7 +24,17 @@ function showScores() {
 //clear history of scores and refresh the page
 function scoreHistory() {
     window.localStorage.removeItem("scores");
-    window.location.reload();
+
+    clearNotifEl.setAttribute("class", "clearnotif")
+
+    setTimeout(function () {
+      rightwrongEl.setAttribute("class", "clearnotif hidden");
+    }, 700);  
+
+    setTimeout(function () {
+      window.location.reload();
+    }, 1000);  
+    
 }
 
 //show scores

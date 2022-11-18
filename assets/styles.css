@@ -82,7 +82,10 @@ button:hover {
   }
 
 #high-scores button {
-    font-size:100%
+    font-size:100%;
+    position: absolute;
+    top: 15px;
+    left: 15px;
 }
 
 li {
@@ -95,4 +98,9 @@ li {
 ol {
     background-color:#b3b3b3;
     max-width: 200px;
+}
+
+#clearnotif {
+    font-size:150%;
+    margin-top:20px;
 }

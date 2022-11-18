@@ -1,44 +1,44 @@
 //test question
 var questions = [
     {
-      questionQ: "The answer is 3",
-      answers: ["One", "Two", "Three", "Llama"],
-      correct: "Three",
+      questionQ: "Which operator is used to assign a variable?",
+      answers: ["x", "+", "=", "/"],
+      correct: "=",
     },
     {
-      questionQ: "The answer is 1",
-      answers: ["One", "Two", "Three", "Llama"],
-      correct: "One",
+      questionQ: "Which of the following is a valid comment?",
+      answers: ["//Comment", "*Comment*", "<!--Comment-->", "*/Comment/^"],
+      correct: "//Comment",
     },
     {
-      questionQ: "The answer is 3",
-      answers: ["One", "Two", "Three", "Llama"],
-      correct: "Three",
+      questionQ: "What is the second expression in a FOR loop?",
+      answers: ["Executed first", "Executed after each loop", "Conditions for looping", "Conditions for returning"],
+      correct: "Conditions for looping",
     },
     {
-      questionQ: "The answer is Llama",
-      answers: ["One", "Two", "Three", "Llama"],
-      correct: "Llama",
+      questionQ: "Which of the following is not a comparison operator?",
+      answers: [">", "!==", "<=", "=>"],
+      correct: "=>",
     },
     {
-      questionQ: "The answer is 2",
-      answers: ["One", "Two", "Three", "Llama"],
-      correct: "Two",
+      questionQ: "Which expression is the most useful, least intrusive debugging tool?",
+      answers: ["alert(x);", "console.log(x)", "prompt(x);", "confirm(x);"],
+      correct: "console.log(x)",
     },
     {
-      questionQ: "The answer is 2",
-      answers: ["One", "Two", "Three", "Llama"],
-      correct: "Two",
+      questionQ: "Which function should we call after a submit event to prevent data loss?",
+      answers: ["event.saveData();", "event.preventDefault();", "event.onLoad();", "event.stopLoad();"],
+      correct: "event.preventDefault();",
     },
     {
-      questionQ: "The answer is 1",
-      answers: ["One", "Two", "Three", "Llama"],
-      correct: "One",
+      questionQ: "Which of the following data types is NOT a JavaScript data type?",
+      answers: ["Empty", "BigInt", "Symbol", "Undefined"],
+      correct: "Empty",
     },
     {
-      questionQ: "The answer is Llama",
-      answers: ["One", "Two", "Three", "Llama"],
-      correct: "Llama",
+      questionQ: "What will console.log(x) output to the console? var x = 5 + 4 + '1'",
+      answers: ["'541'", "10", "'10'", "'91'"],
+      correct: "'91'",
     },
   ];
 
@@ -66,7 +66,6 @@ var submitBtn = document.getElementById("submit")
 
 //start the quiz
 function startQuiz() {
-    
     timerEl.textContent = "Score: " + timer;
     // hide start screen
     instructionsEl.setAttribute("class", "hidden");
@@ -96,7 +95,7 @@ function makeQuestion() {
     // make answers
     for (var i = 0; i <= 3; i++) {
       // create buttons for answers
-      var answer = questions[0].answers[i];
+      var answer = questionNumber.answers[i];
       var answerButton = document.createElement("button");
       answerButton.setAttribute("class", "answer");
       answerButton.setAttribute("value", answer);
@@ -198,7 +197,7 @@ function saveScore() {
   scores.push(thisScore);
   window.localStorage.setItem("scores", JSON.stringify(scores));
 
-  window.location.href = "highscores.html";
+  window.location.href = "scores.html";
 }
 
 //clicks that trigger functions
